@@ -1,0 +1,40 @@
+version: "3"
+services:
+  reverseproxy:
+      image:talismanic/reverseproxy
+      ports:
+          - 8080:8080
+      restart: always
+      depends_on:
+        - backend-user
+        - backend-feed     
+  backend-user:
+    image: talismanic/udacity-restapi-user
+    environment:
+      POSTGRESS_USERNAME: $POSTGRESS_USERNAME
+      POSTGRESS_PASSWORD: $POSTGRESS_PASSWORD 
+      POSTGRESS_DB: $POSTGRESS_DB 
+      POSTGRESS_HOST: $POSTGRESS_HOST 
+      AWS_REGION: $AWS_REGION 
+      AWS_PROFILE: $AWS_PROFILE 
+      AWS_BUCKET: $AWS_BUCKET
+      JWT_SECRET: $JWT_SECRET
+      URL: "http://a6dc4fc8d5ec211eabf6a0e0157183d1-1535993016.us-east-1.elb.amazonaws.com:8100"
+  backend-feed:
+    image: talismanic/udacity-restapi-feed
+    volumes:
+      - $HOME/.aws:/root/.aws
+    environment:
+      POSTGRESS_USERNAME: $POSTGRESS_USERNAME
+      POSTGRESS_PASSWORD: $POSTGRESS_PASSWORD 
+      POSTGRESS_DB: $POSTGRESS_DB 
+      POSTGRESS_HOST: $POSTGRESS_HOST 
+      AWS_REGION: $AWS_REGION 
+      AWS_PROFILE: $AWS_PROFILE 
+      AWS_BUCKET: $AWS_BUCKET
+      JWT_SECRET: $JWT_SECRET
+      URL: "http://a6dc4fc8d5ec211eabf6a0e0157183d1-1535993016.us-east-1.elb.amazonaws.com:8100/home"
+  frontend:
+    image: talismanic/udacity-frontend:local
+    ports:
+      - "8100:80"

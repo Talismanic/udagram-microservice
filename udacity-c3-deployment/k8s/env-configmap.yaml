@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+data:
+  AWS_BUCKET: cfitudagram-dev-mehedi
+  AWS_PROFILE: default
+  AWS_REGION: us-east-1
+  JWT_SECRET: hello1234567890
+  POSTGRESS_DB: cfitudagramdevmehedi
+  POSTGRESS_HOST: cfitudagramdevmehedi.cpnjvmffwyfz.us-east-1.rds.amazonaws.com
+  URL: http://localhost:8100  
+metadata:
+  name: env-config
+  
