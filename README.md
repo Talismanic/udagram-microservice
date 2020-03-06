@@ -20,18 +20,15 @@ Check the images in docker hub. We should see something like below:
 In case you want to use my images, you can find those here:
 
 [frontend](https://hub.docker.com/repository/docker/talismanic/udacity-frontend)
-
 [feed service](https://hub.docker.com/repository/docker/talismanic/udacity-restapi-feed)
-
 [user service](https://hub.docker.com/repository/docker/talismanic/udacity-restapi-user)
-
 [reverseproxy](https://hub.docker.com/repository/docker/talismanic/reverseproxy)
 
 
 
 Now to spin up the cluster run the following command:
 
-#### eksctl create cluster --name talisudagram --version 1.14 --nodegroup-name standard-workers --node-type t3.medium --nodes 3 --nodes-min 1 --nodes-max 4 --node-ami auto
+#### eksctl create cluster --name MyClusterName --version 1.14 --nodegroup-name standard-workers --node-type t3.medium --nodes 3 --nodes-min 1 --nodes-max 4 --node-ami auto
 
 Change the type of the services of Frontend and Reverseproxy to Loadbalancer.
 
@@ -59,3 +56,7 @@ Connect your Github Repo with TravisCI. Make the changes mentioned in the .travi
 <img width="856" alt="travis-ci-build" src="https://user-images.githubusercontent.com/21278048/76055049-c30a7200-5f9c-11ea-82da-06478afc610e.PNG">
 
 
+
+When you have collected all your artifacts required to submit the assignment, do not forget to clear the cluster to avoid additional charging. Please use below command to clear this.
+
+#### eksctl delete cluster --name=MyClusterName
