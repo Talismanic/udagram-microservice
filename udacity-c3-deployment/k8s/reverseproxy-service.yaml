@@ -11,4 +11,5 @@ spec:
     targetPort: 8080
   selector:
     service: reverseproxy
+#Make the service type as LoadBalancer to access it from Open Internet
   type: LoadBalancer    
