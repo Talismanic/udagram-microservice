@@ -37,7 +37,7 @@ Now to spin up the cluster run the following command:
 
 
 ### Step 03
-Change the type of the services of Frontend and Reverseproxy to Loadbalancer in the yaml definition of the services.
+Change the type of the services of [Frontend](https://github.com/Talismanic/udagram-microservice/blob/master/udacity-c3-deployment/k8s/frontend-service.yaml) and [Reverseproxy](https://github.com/Talismanic/udagram-microservice/blob/master/udacity-c3-deployment/k8s/reverseproxy-service.yaml) to Loadbalancer in the yaml definition of the services.
 
 Run below command to spin the application:
 #### kubectl apply -f .
