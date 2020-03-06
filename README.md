@@ -60,7 +60,7 @@ To check whether the application is accessible, please copy the EXTERNAL-IP of f
 
 ### Step 05
 #### Integrating with Travis-CI
-Connect your Github Repo with TravisCI. Make the changes mentioned in the .travis.yml file. Make any change in the code base and push it to Repo. This should automatically trigger the build and after successful build you should see something like below:
+Connect your Github Repo with TravisCI. Make the changes mentioned in the .travis.yml file. Go to settings of the project and add all the required environment variables mentioned in the configuration files of the backend services. Then make any change in the code base and push it to Repo. This should automatically trigger the build and after successful build you should see something like below:
 
 <img width="856" alt="travis-ci-build" src="https://user-images.githubusercontent.com/21278048/76055049-c30a7200-5f9c-11ea-82da-06478afc610e.PNG">
 
